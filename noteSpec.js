@@ -3,9 +3,7 @@
 function testNoteRespondsToText () {
   var note = new Note("hello");
 
-  if(!note.hasOwnProperty("text")) {
-    throw new Error("Text is not a valid function");
-  };
+  assert.isTrue(note.hasOwnProperty("text"), "Text is not a valid function");
 };
 
 
@@ -15,10 +13,7 @@ function testNoteSavesText () {
   var text = "hello"
   var note = new Note(text);
 
-  if(note.text !== text) {
-    throw new Error("Text has not been saved");
-  };
-
+  assert.isTrue(note.text === text, "Text has not been saved");
 };
 
 testNoteSavesText();
