@@ -1,19 +1,19 @@
 "strict mode";
 
-function testNoteRespondsToText () {
+function noteRespondsToText () {
   var note = new Note("hello");
 
-  assert.isTrue(note.hasOwnProperty("text"), "Text is not a valid function");
+  assert.isTrue(note.hasOwnProperty("text"), "'Text' is not a valid property");
 };
 
 
-testNoteRespondsToText()
+noteRespondsToText();
 
-function testNoteSavesText () {
+function noteSavesText () {
   var text = "hello"
   var note = new Note(text);
 
   assert.isTrue(note.text === text, "Text has not been saved");
 };
 
-testNoteSavesText();
+noteSavesText();
