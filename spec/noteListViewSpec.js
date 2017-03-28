@@ -8,3 +8,11 @@ function printNotesInList(){
 }
 
 printNotesInList()
+
+function doesNotPrintListIfNoNotes() {
+  var noteList = new NoteList();
+  var noteListView = new NoteListView(noteList);
+  assert.isTrue(noteListView.generateHTML() === "<ul></ul>")
+}
+
+doesNotPrintListIfNoNotes()
