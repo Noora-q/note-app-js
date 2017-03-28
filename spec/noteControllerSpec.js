@@ -2,8 +2,10 @@
 
 function noteControllerCanBeInstantiated () {
 
-  var noteList = new NoteList();
-  var controller = new NoteController(noteList);
+  function NoteListDouble() {};
+
+  var noteListDouble = new NoteListDouble();
+  var controller = new NoteController(noteListDouble);
 
   assert.isTrue(controller instanceof NoteController, "NoteController was not instantiated")
 
@@ -11,13 +13,15 @@ function noteControllerCanBeInstantiated () {
 
 noteControllerCanBeInstantiated ();
 
-function noteControllerAddsInnerHTMLToView () {
+function noteControllerSavesNotelist () {
 
-  var noteList = new NoteList();
-  var controller = new NoteController(noteList);
+  function NoteListDouble() {};
 
-  assert.isTrue(controller.noteList === noteList, "NoteController does not save notelist as property")
+  var noteListDouble = new NoteListDouble();
+  var controller = new NoteController(noteListDouble);
+
+  assert.isTrue(controller.noteList === noteListDouble, "NoteController does not save notelist as property")
 
 };
 
-noteControllerAddsInnerHTMLToView ();
+noteControllerSavesNotelist ();
