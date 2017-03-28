@@ -1,3 +1,5 @@
+"strict mode";
+
 function printNotesInList(){
   var noteList = new NoteList();
   noteList.createNote("Hello");
