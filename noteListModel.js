@@ -2,23 +2,20 @@
 
 (function(exports) {
   function NoteList() {
-    this.notes = []
+    this._notes = []
   };
 
   NoteList.prototype.createNote = function (text) {
-    return this.notes.push(new Note(text));
+    return this._notes.push(new Note(text));
+  };
+
+  NoteList.prototype.createNote = function (text) {
+    return this._notes.push(new Note(text));
+  };
+
+  NoteList.prototype.viewNotes = function() {
+    return this._notes;
   };
 
   exports.NoteList = NoteList;
 })(this);
-
-
-NoteList.prototype.createNote = function (text) {
-  return this.notes.push(new Note(text));
-};
-
-NoteList.prototype.displayNotes = function () {
-  this.notes.forEach(function(note){
-    return note.text
-  });
-};
