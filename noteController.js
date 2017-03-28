@@ -2,8 +2,8 @@
 
 (function(exports) {
 
-  function NoteController () {
-
+  function NoteController (noteList) {
+    this.noteList = noteList;
   };
 
   exports.NoteController = NoteController;
