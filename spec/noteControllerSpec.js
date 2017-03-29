@@ -7,7 +7,7 @@ function noteControllerCanBeInstantiated () {
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
 
-  assert.isTrue(controller instanceof NoteController, "NoteController was not instantiated")
+  assert.isTypeOf(controller, NoteController, "NoteController was not instantiated")
 
 };
 
@@ -20,7 +20,7 @@ function noteControllerSavesNotelist () {
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
 
-  assert.isTrue(controller.noteList === noteListDouble, "NoteController does not save notelist as property")
+  assert.isSameObject(controller.noteList, noteListDouble, "NoteController does not save notelist as property")
 
 };
 

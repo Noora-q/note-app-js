@@ -2,7 +2,7 @@
 
 function noteListRespondsToNotes () {
   var noteList = new NoteList();
-  assert.isTrue(noteList.hasOwnProperty("_notes"), "'Notes' is not a valid property");
+  assert.hasProperty(noteList, "_notes", "'Notes' is not a valid property");
 };
 
 noteListRespondsToNotes();
