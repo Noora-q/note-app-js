@@ -5,9 +5,9 @@ var assert = {
     }
   },
 
-  isEqual: function(fnToCheck, result, errorMessage) {
+  isEqual: function(fnToCheck, result) {
     if (fnToCheck != result) {
-      throw new Error(errorMessage);
+      throw new Error("Expected " + result + ", got " + fnToCheck);
     }
   },
 

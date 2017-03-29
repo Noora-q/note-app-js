@@ -13,7 +13,7 @@ function noteSavesText () {
   var text = "hello"
   var note = new Note(text);
 
-  assert.isTrue(note.text === text, "Text has not been saved");
+  assert.isEqual(note.text, text);
 };
 
 noteSavesText();
