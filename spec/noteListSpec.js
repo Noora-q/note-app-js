@@ -16,7 +16,7 @@ noteListHasEmptyArrayOfNotes();
 
 function noteListCreatesAndSavesNote() {
   var noteList = new NoteList();
-  var note = noteList.createNote("hello");
+  var note = noteList.createNote("hello", 1);
   assert.isTrue(noteList._notes[0].text === "hello", "Created note is not an instance of Note");
 };
 
@@ -24,7 +24,7 @@ noteListCreatesAndSavesNote();
 
 function showsNotesList() {
   var noteList = new NoteList();
-  noteList.createNote("Hello")
+  noteList.createNote("Hello", 1)
   assert.isTrue(noteList.viewNotes()[0].text === "Hello", "Array does not include text")
 }
 

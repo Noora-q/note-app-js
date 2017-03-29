@@ -6,7 +6,8 @@
   };
 
   NoteList.prototype.createNote = function (text) {
-    return this._notes.push(new Note(text));
+    var id = this._notes.length + 1
+    return this._notes.push(new Note(text, id));
   };
 
   NoteList.prototype.viewNotes = function() {

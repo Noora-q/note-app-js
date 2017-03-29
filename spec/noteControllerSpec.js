@@ -23,16 +23,16 @@ NoteListDouble.prototype = {
   }
 };
 
-function DivDouble() {
-  this.innerHtmlCallCount = 0;
-  this.id = "app"
-};
-
-DivDouble.prototype = {
-  innerHtml: function() {
-    this.innerHtmlCallCount++;
-  }
-};
+// function DivDouble() {
+//   this.innerHtmlCallCount = 0;
+//   this.id = "app"
+// };
+//
+// DivDouble.prototype = {
+//   innerHtml: function() {
+//     this.innerHtmlCallCount++;
+//   }
+// };
 
 
 function noteControllerCanBeInstantiated () {

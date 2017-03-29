@@ -24,3 +24,13 @@ function doesNotPrintListIfNoNotes() {
 }
 
 doesNotPrintListIfNoNotes()
+
+
+function printsFirstTwentyCharsOfText () {
+  var noteList = new NoteList();
+  noteList.createNote("Hello Hello Hello Hello");
+  var noteListView = new NoteListView(noteList);
+  assert.isEqual(noteListView.generateHTML(), "<ul><li><div>Hello Hello Hello He</div></li></ul>")
+}
+
+printsFirstTwentyCharsOfText ()
