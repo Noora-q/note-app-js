@@ -2,27 +2,41 @@
 
 function noteRespondsToText () {
   var note = new Note("hello", 1);
-
-  assert.isTrue(note.hasOwnProperty("text"), "'Text' is not a valid property");
-};
-
+  try {
+    new Assert(note.hasOwnProperty("text"), "'Text' is not a valid property", "noteRespondsToText").isTrue();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
 
 noteRespondsToText();
 
 function noteSavesText () {
-  var text = "hello"
+  var text = "hello";
   var note = new Note(text, 1);
 
-  assert.isEqual(note.text, text);
-};
+  try {
+    new Assert(note.text, "Text is not saved", "noteSavesText", text).isEqual();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
 
 noteSavesText();
 
 function noteIsInstantiatedWithId () {
-  var id = 1
-  var text = "hello"
+  var id = 1;
+  var text = "hello";
   var note = new Note(text, id);
-  assert.isEqual(note.id, id);
+
+  try {
+    new Assert(note.id, "ID is not saved", "noteIsInstantiatedWithId", id).isEqual();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
 }
 
-noteIsInstantiatedWithId ()
+noteIsInstantiatedWithId ();

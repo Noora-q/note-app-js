@@ -1,36 +1,47 @@
 "strict mode";
 
-function noteListViewCanBeInstantiated () {
-  var noteList = new NoteList();
-  var noteListView = new NoteListView(noteList);
-  assert.isTypeOf(noteListView, NoteListView, "NoteListView was not instantiated")
-};
+// function noteListViewCanBeInstantiated () {
+//   var noteList = new NoteList();
+//   var noteListView = new NoteListView(noteList);
+//   assert.isTypeOf(noteListView, NoteListView, "NoteListView was not instantiated")
+// };
 
-function printsNotesInList(){
+function generatesHTMLForNoteList(){
   var noteList = new NoteList();
   noteList.createNote("Hello");
   noteList.createNote("Goodbye");
 
   var noteListView = new NoteListView(noteList);
-  assert.isTrue(noteListView.generateHTML() === "<ul><li><div>Hello</div></li><li><div>Goodbye</div></li></ul>")
+
+  try {
+    new Assert(noteListView.generateHTML() === "<ul><li><div>Hello</div></li><li><div>Goodbye</div></li></ul>", "HTML not generated", "generatesHTMLForNoteList").isTrue();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  };
 }
 
-printsNotesInList()
+generatesHTMLForNoteList()
 
-function doesNotPrintListIfNoNotes() {
+function generatesHTMLWhenEmptyNoteList() {
   var noteList = new NoteList();
   var noteListView = new NoteListView(noteList);
-  assert.isTrue(noteListView.generateHTML() === "<ul></ul>")
+  try {
+    new Assert(noteListView.generateHTML() === "<ul></ul>", "correct HTML not generated", "generatesHTMLWhenEmptyNoteList").isTrue();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  };
 }
 
-doesNotPrintListIfNoNotes()
+generatesHTMLWhenEmptyNoteList()
 
 
-function printsFirstTwentyCharsOfText () {
-  var noteList = new NoteList();
-  noteList.createNote("Hello Hello Hello Hello");
-  var noteListView = new NoteListView(noteList);
-  assert.isEqual(noteListView.generateHTML(), "<ul><li><div>Hello Hello Hello He</div></li></ul>")
-}
-
-printsFirstTwentyCharsOfText ()
+// function printsFirstTwentyCharsOfText () {
+//   var noteList = new NoteList();
+//   noteList.createNote("Hello Hello Hello Hello");
+//   var noteListView = new NoteListView(noteList);
+//   assert.isEqual(noteListView.generateHTML(), "<ul><li><div>Hello Hello Hello He</div></li></ul>")
+// }
+//
+// printsFirstTwentyCharsOfText ()
