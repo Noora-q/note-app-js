@@ -1,10 +1,17 @@
 "strict mode";
 
-// function noteListViewCanBeInstantiated () {
-//   var noteList = new NoteList();
-//   var noteListView = new NoteListView(noteList);
-//   assert.isTypeOf(noteListView, NoteListView, "NoteListView was not instantiated")
-// };
+function noteListViewCanBeInstantiated () {
+  var noteList = new NoteList();
+  var noteListView = new NoteListView(noteList);
+  try {
+    new Assert(noteListView, "NoteListView was not instantiated", "noteListViewCanBeInstantiated").isTypeOf(NoteListView);
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
+
+noteListViewCanBeInstantiated();
 
 function generatesHTMLForNoteList(){
   var noteList = new NoteList();

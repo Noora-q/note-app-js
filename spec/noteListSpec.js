@@ -1,12 +1,5 @@
 "strict mode";
 
-// function noteListRespondsToNotes () {
-//   var noteList = new NoteList();
-//   assert.hasProperty(noteList, "_notes", "'Notes' is not a valid property");
-// };
-//
-// noteListRespondsToNotes();
-
 function noteListHasEmptyArrayOfNotes() {
   var noteList = new NoteList();
   try {
@@ -14,8 +7,8 @@ function noteListHasEmptyArrayOfNotes() {
   }
   catch(err) {
     console.log(err.errorMessage);
-  };
-};
+  }
+}
 
 noteListHasEmptyArrayOfNotes();
 
@@ -27,20 +20,20 @@ function noteListCreatesAndSavesNote() {
   }
   catch(err) {
     console.log(err.errorMessage);
-  };
-};
+  }
+}
 
 noteListCreatesAndSavesNote();
 
 function showsNotesList() {
   var noteList = new NoteList();
-  noteList.createNote("Hello", 1)
+  noteList.createNote("Hello", 1);
   try {
     new Assert(noteList.viewNotes()[0].text === "Hello", "Array does not include text", "showsNotesList").isTrue();
   }
   catch(err) {
     console.log(err.errorMessage);
-  };
+  }
 }
 
 showsNotesList();

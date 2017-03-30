@@ -4,11 +4,16 @@ function NoteDouble() {
   this.text = "hello";
 }
 
-// function singleNoteViewCanBeInstantiated () {
-//   var noteDouble = new NoteDouble();
-//   var singleNoteView = new SingleNoteView(noteDouble);
-//   assert.isTypeOf(singleNoteView, SingleNoteView, "SingleNoteView was not instantiated")
-// }
+function singleNoteViewCanBeInstantiated () {
+  var noteDouble = new NoteDouble();
+  var singleNoteView = new SingleNoteView(noteDouble);
+  try {
+    new Assert(singleNoteView, "SingleNoteView was not instantiated", "singleNoteViewCanBeInstantiated").isTypeOf(SingleNoteView);
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
 
 
 function singleNoteViewTakesNoteOnInstantiation () {
@@ -35,6 +40,6 @@ function returnsHtmlForDisplayingNoteText () {
 }
 
 
-// singleNoteViewCanBeInstantiated();
+singleNoteViewCanBeInstantiated();
 singleNoteViewTakesNoteOnInstantiation();
 returnsHtmlForDisplayingNoteText();
