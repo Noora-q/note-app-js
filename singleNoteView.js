@@ -2,13 +2,13 @@
 
 (function(exports) {
   function SingleNoteView (note) {
-    this.note = note
+    this.note = note;
+  }
+
+  SingleNoteView.prototype.generateHTML = function () {
+    return "<div>" + this.note.text + "</div>";
   };
 
-exports.SingleNoteView = SingleNoteView
+exports.SingleNoteView = SingleNoteView;
 
 })(this);
-
-SingleNoteView.prototype.generateHTML = function () {
-  return "<div>" + this.note.text + "</div>"
-};

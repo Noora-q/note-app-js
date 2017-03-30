@@ -26,7 +26,6 @@ NoteListDouble.prototype = {
 
 
 function noteControllerCanBeInstantiated () {
-  function NoteListDouble() {}
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
   try {
@@ -38,7 +37,6 @@ function noteControllerCanBeInstantiated () {
 }
 
 function noteControllerSavesNotelist () {
-  function NoteListDouble() {}
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
   try {
@@ -48,7 +46,6 @@ function noteControllerSavesNotelist () {
     console.log(err.errorMessage);
   }
 }
-
 
 function noteControllerAddsNoteToNoteList () {
   var noteListDouble = new NoteListDouble();
@@ -65,7 +62,6 @@ function noteControllerAddsNoteToNoteList () {
 function noteControllerCreatesNoteListView () {
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
-  controller.createView();
   try {
     new Assert(controller.view.noteList, "Note list view not created", "noteControllerCreatesNoteListView", noteListDouble).isEqual();
   }

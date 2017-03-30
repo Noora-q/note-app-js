@@ -4,14 +4,11 @@
 
   function NoteController (noteList) {
     this.noteList = noteList;
-  };
+    this.view = new NoteListView(noteList);
+  }
 
   NoteController.prototype.addNote = function (text) {
     this.noteList.createNote(text);
-  };
-
-  NoteController.prototype.createView = function() {
-    return this.view = new NoteListView(this.noteList);
   };
 
   NoteController.prototype.addHTML = function() {
