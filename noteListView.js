@@ -8,7 +8,7 @@
 
   NoteListView.prototype.generateHTML = function () {
     return "<ul>" + this.noteList.viewNotes().map(function(note) {
-      return "<li><div>" + note.text.slice(0,20) + "</div></li>"
+      return "<li><div><a href=\"#notes/" + note.id + "\">" + note.text.slice(0,20) + "</a></div></li>"
     }).join("") + "</ul>";
   };
 

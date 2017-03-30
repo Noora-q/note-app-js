@@ -7,7 +7,7 @@ function noteListViewCanBeInstantiated () {
     new Assert(noteListView, "NoteListView was not instantiated", "noteListViewCanBeInstantiated").isTypeOf(NoteListView);
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -21,10 +21,10 @@ function generatesHTMLForNoteList(){
   var noteListView = new NoteListView(noteList);
 
   try {
-    new Assert(noteListView.generateHTML() === "<ul><li><div>Hello</div></li><li><div>Goodbye</div></li></ul>", "HTML not generated", "generatesHTMLForNoteList").isTrue();
+    new Assert(noteListView.generateHTML() === "<ul><li><div><a href=\"#notes/1\">Hello</a></div></li><li><div><a href=\"#notes/2\">Goodbye</a></div></li></ul>", "HTML not generated", "generatesHTMLForNoteList").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -37,7 +37,7 @@ function generatesHTMLWhenEmptyNoteList() {
     new Assert(noteListView.generateHTML() === "<ul></ul>", "correct HTML not generated", "generatesHTMLWhenEmptyNoteList").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -49,10 +49,10 @@ function printsFirstTwentyCharsOfText () {
   noteList.createNote("Hello Hello Hello Hello");
   var noteListView = new NoteListView(noteList);
   try {
-    new Assert(noteListView.generateHTML(), "View did not print first 20 characters", "printsFirstTwentyCharsOfText", "<ul><li><div>Hello Hello Hello He</div></li></ul>").isEqual();
+    new Assert(noteListView.generateHTML(), "View did not print first 20 characters", "printsFirstTwentyCharsOfText", "<ul><li><div><a href=\"#notes/1\">Hello Hello Hello He</a></div></li></ul>").isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 

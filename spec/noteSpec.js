@@ -6,7 +6,7 @@ function noteRespondsToText () {
     new Assert(note.hasOwnProperty("text"), "'Text' is not a valid property", "noteRespondsToText").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -20,7 +20,7 @@ function noteSavesText () {
     new Assert(note.text, "Text is not saved", "noteSavesText", text).isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -35,7 +35,7 @@ function noteIsInstantiatedWithId () {
     new Assert(note.id, "ID is not saved", "noteIsInstantiatedWithId", id).isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 

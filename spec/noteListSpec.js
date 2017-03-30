@@ -6,7 +6,7 @@ function noteListHasEmptyArrayOfNotes() {
     new Assert(Array.isArray(noteList._notes) && noteList._notes.length === 0, "Notes is not an empty array", "noteListHasEmptyArrayOfNotes").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -19,7 +19,7 @@ function noteListCreatesAndSavesNote() {
     new Assert(noteList._notes[0].text === "hello", "Created note is not an instance of Note", "noteListCreatesAndSavesNote").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -32,7 +32,7 @@ function showsNotesList() {
     new Assert(noteList.viewNotes()[0].text === "Hello", "Array does not include text", "showsNotesList").isTrue();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 

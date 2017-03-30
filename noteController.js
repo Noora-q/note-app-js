@@ -12,7 +12,7 @@
   };
 
   NoteController.prototype.addHTML = function() {
-    var element = document.getElementById("app");
+    var element = document.getElementById("noteList");
     element.innerHTML = this.view.generateHTML();
   };
 

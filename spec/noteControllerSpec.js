@@ -32,7 +32,7 @@ function noteControllerCanBeInstantiated () {
     new Assert(controller, "NoteController was not instantiated", "noteControllerCanBeInstantiated").isTypeOf(NoteController);
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -43,7 +43,7 @@ function noteControllerSavesNotelist () {
     new Assert(controller.noteList, "NoteController does not save notelist as property", "noteControllerSavesNotelist", noteListDouble).isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -55,7 +55,7 @@ function noteControllerAddsNoteToNoteList () {
     new Assert(noteListDouble.createNoteCallCount, "Note not added to note list", "noteControllerAddsNoteToNoteList", 1).isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
@@ -66,7 +66,7 @@ function noteControllerCreatesNoteListView () {
     new Assert(controller.view.noteList, "Note list view not created", "noteControllerCreatesNoteListView", noteListDouble).isEqual();
   }
   catch(err) {
-    console.log(err.errorMessage);
+    console.log(err.message);
   }
 }
 
