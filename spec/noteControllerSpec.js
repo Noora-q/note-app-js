@@ -13,17 +13,16 @@ NoteListDouble.prototype = {
   }
 };
 
-// function DivDouble() {
-//   this.innerHtmlCallCount = 0;
-//   this.id = "app"
-// };
-//
-// DivDouble.prototype = {
-//   innerHtml: function() {
-//     this.innerHtmlCallCount++;
-//   }
-// };
+function HTMLDouble() {
+  this.innerHTML = "";
+}
 
+function ViewDouble() {}
+ViewDouble.prototype = {
+  generateHTML: function() {
+    return "html";
+  }
+};
 
 function noteControllerCanBeInstantiated () {
   var noteListDouble = new NoteListDouble();
@@ -70,18 +69,24 @@ function noteControllerCreatesNoteListView () {
   }
 }
 
-// function noteControllerInsertsHtml () {
-//   var noteListDouble = new NoteListDouble();
-//   var controller = new NoteController(noteListDouble);
-//   var div = new DivDouble();
-//   controller.createView();
-//   console.log(document.getElementById("app"))
-//   controller.addHTML()
-//   assert.isEqual(div.innerHtmlCallCount, 1)
-// };
+function noteControllerInsertsHtml () {
+  var noteListDouble = new NoteListDouble();
+  var controller = new NoteController(noteListDouble);
+  var divDouble = new HTMLDouble();
+  controller.view = new ViewDouble(noteListDouble);
+  controller.addHTML(divDouble);
+
+  try {
+    new Assert(divDouble.innerHTML, "HTML not added to page", "noteControllerInsertsHtml", "html").isEqual();
+  }
+  catch(err) {
+    console.log(err.message);
+  }
+}
 
 
 noteControllerCanBeInstantiated ();
 noteControllerSavesNotelist ();
 noteControllerAddsNoteToNoteList();
 noteControllerCreatesNoteListView();
+noteControllerInsertsHtml();

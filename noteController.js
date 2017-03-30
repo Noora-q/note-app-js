@@ -11,8 +11,8 @@
     this.noteList.createNote(text);
   };
 
-  NoteController.prototype.addHTML = function() {
-    var element = document.getElementById("noteList");
+  NoteController.prototype.addHTML = function(element = document.getElementById("noteList")) {
+    var element = element;
     element.innerHTML = this.view.generateHTML();
   };
 
