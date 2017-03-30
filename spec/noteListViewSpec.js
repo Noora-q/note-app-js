@@ -18,10 +18,10 @@ function generatesHTMLForNoteList(){
   }
   catch(err) {
     console.log(err.errorMessage);
-  };
+  }
 }
 
-generatesHTMLForNoteList()
+generatesHTMLForNoteList();
 
 function generatesHTMLWhenEmptyNoteList() {
   var noteList = new NoteList();
@@ -31,17 +31,22 @@ function generatesHTMLWhenEmptyNoteList() {
   }
   catch(err) {
     console.log(err.errorMessage);
-  };
+  }
 }
 
-generatesHTMLWhenEmptyNoteList()
+generatesHTMLWhenEmptyNoteList();
 
 
-// function printsFirstTwentyCharsOfText () {
-//   var noteList = new NoteList();
-//   noteList.createNote("Hello Hello Hello Hello");
-//   var noteListView = new NoteListView(noteList);
-//   assert.isEqual(noteListView.generateHTML(), "<ul><li><div>Hello Hello Hello He</div></li></ul>")
-// }
-//
-// printsFirstTwentyCharsOfText ()
+function printsFirstTwentyCharsOfText () {
+  var noteList = new NoteList();
+  noteList.createNote("Hello Hello Hello Hello");
+  var noteListView = new NoteListView(noteList);
+  try {
+    new Assert(noteListView.generateHTML(), "View did not print first 20 characters", "printsFirstTwentyCharsOfText", "<ul><li><div>Hello Hello Hello He</div></li></ul>").isEqual();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
+
+printsFirstTwentyCharsOfText();

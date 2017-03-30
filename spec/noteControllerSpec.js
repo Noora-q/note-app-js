@@ -12,14 +12,14 @@
 
 function NoteListDouble() {
   this.createNoteCallCount = 0;
-};
+}
 
 NoteListDouble.prototype = {
   createNote: function() {
     this.createNoteCallCount++;
   },
   viewNotes: function() {
-    return ["hello"]
+    return ["hello"];
   }
 };
 
@@ -35,34 +35,44 @@ NoteListDouble.prototype = {
 // };
 
 
-function noteControllerCanBeInstantiated () {
-  function NoteListDouble() {};
-  var noteListDouble = new NoteListDouble();
-  var controller = new NoteController(noteListDouble);
-  assert.isTypeOf(controller, NoteController, "NoteController was not instantiated")
-};
-
-function noteControllerSavesNotelist () {
-  function NoteListDouble() {};
-  var noteListDouble = new NoteListDouble();
-  var controller = new NoteController(noteListDouble);
-  assert.isSameObject(controller.noteList, noteListDouble, "NoteController does not save notelist as property");
-};
+// function noteControllerCanBeInstantiated () {
+//   function NoteListDouble() {}
+//   var noteListDouble = new NoteListDouble();
+//   var controller = new NoteController(noteListDouble);
+//   assert.isTypeOf(controller, NoteController, "NoteController was not instantiated")
+// }
+//
+// function noteControllerSavesNotelist () {
+//   function NoteListDouble() {}
+//   var noteListDouble = new NoteListDouble();
+//   var controller = new NoteController(noteListDouble);
+//   assert.isSameObject(controller.noteList, noteListDouble, "NoteController does not save notelist as property");
+// }
 
 
 function noteControllerAddsNoteToNoteList () {
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
-  controller.addNote("Hello")
-  assert.isEqual(noteListDouble.createNoteCallCount, 1)
-};
+  controller.addNote("Hello");
+  try {
+    new Assert(noteListDouble.createNoteCallCount, "Note not added to note list", "noteControllerAddsNoteToNoteList", 1).isEqual();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
 
 function noteControllerCreatesNoteListView () {
   var noteListDouble = new NoteListDouble();
   var controller = new NoteController(noteListDouble);
   controller.createView();
-  assert.isEqual(controller.view.noteList, noteListDouble)
-};
+  try {
+    new Assert(controller.view.noteList, "Note list view not created", "noteControllerCreatesNoteListView", noteListDouble).isEqual();
+  }
+  catch(err) {
+    console.log(err.errorMessage);
+  }
+}
 
 // function noteControllerInsertsHtml () {
 //   var noteListDouble = new NoteListDouble();
@@ -75,7 +85,7 @@ function noteControllerCreatesNoteListView () {
 // };
 
 
-noteControllerCanBeInstantiated ();
-noteControllerSavesNotelist ();
-noteControllerAddsNoteToNoteList ()
-noteControllerCreatesNoteListView ()
+// noteControllerCanBeInstantiated ();
+// noteControllerSavesNotelist ();
+noteControllerAddsNoteToNoteList();
+noteControllerCreatesNoteListView();
