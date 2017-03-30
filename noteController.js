@@ -16,6 +16,27 @@
     element.innerHTML = this.view.generateHTML();
   };
 
+
+
+  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function() {
+    window.addEventListener("hashchange", this.showNoteForCurrentPage());
+  };
+
+  NoteController.prototype.showNoteForCurrentPage = function() {
+    this.showNote(this.getNoteFromUrl(window.location));
+  };
+
+  NoteController.prototype.getNoteFromUrl = function(location) {
+    return location.hash.split("#")[1];
+  };
+
+  NoteController.prototype.showNote = function(note) {
+    document
+      .getElementById("app")
+      .innerHTML = note;
+  };
+
+
   exports.NoteController = NoteController;
 
 })(this);
