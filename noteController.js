@@ -5,6 +5,7 @@
   function NoteController (noteList) {
     this.noteList = noteList;
     this.view = new NoteListView(noteList);
+
   }
 
   NoteController.prototype.addNote = function (text) {
@@ -27,13 +28,13 @@
   };
 
   NoteController.prototype.getNoteFromUrl = function(location) {
-    return location.hash.split("#")[1];
+    return location.hash.split("#notes/")[1];
   };
 
-  NoteController.prototype.showNote = function(note) {
+  NoteController.prototype.showNote = function(id) {
     document
       .getElementById("app")
-      .innerHTML = this.noteList._notes[0].text;
+      .innerHTML = this.noteList.viewNotes()[this.noteList._notes[0]].getText();
   };
 
 
