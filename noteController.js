@@ -33,7 +33,7 @@
   NoteController.prototype.showNote = function(note) {
     document
       .getElementById("app")
-      .innerHTML = note;
+      .innerHTML = this.noteList._notes[0].text;
   };
 
 
