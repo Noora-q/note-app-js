@@ -5,7 +5,7 @@
   function NoteController (noteList) {
     this.noteList = noteList;
     this.view = new NoteListView(noteList);
-
+    controller = this;
   }
 
   NoteController.prototype.addNote = function (text) {
@@ -18,25 +18,25 @@
   };
 
 
-
-  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function() {
-    window.addEventListener("hashchange", this.showNoteForCurrentPage());
-  };
-
-  NoteController.prototype.showNoteForCurrentPage = function() {
-    this.showNote(this.getNoteFromUrl(window.location));
+  NoteController.prototype.showNote = function(id) {
+    document
+      .getElementById("app")
+      .innerHTML = this.noteList._notes[id-1].getText();
   };
 
   NoteController.prototype.getNoteFromUrl = function(location) {
     return location.hash.split("#notes/")[1];
   };
 
-  NoteController.prototype.showNote = function(id) {
-    document
-      .getElementById("app")
-      .innerHTML = this.noteList.viewNotes()[this.noteList._notes[0]].getText();
+  NoteController.prototype.showNoteForCurrentPage = function() {
+    controller.showNote(controller.getNoteFromUrl(window.location));
   };
 
+
+
+  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function() {
+    window.addEventListener("hashchange", this.showNoteForCurrentPage);
+  };
 
   exports.NoteController = NoteController;
 
