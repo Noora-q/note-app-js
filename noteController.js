@@ -17,6 +17,17 @@
     element.innerHTML = this.view.generateHTML();
   };
 
+  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function() {
+    window.addEventListener("hashchange", this.showNoteForCurrentPage);
+  };
+
+  NoteController.prototype.showNoteForCurrentPage = function() {
+    controller.showNote(controller.getNoteFromUrl(window.location));
+  };
+
+  NoteController.prototype.getNoteFromUrl = function(location) {
+    return location.hash.split("#notes/")[1];
+  };
 
   NoteController.prototype.showNote = function(id) {
     document
@@ -24,19 +35,6 @@
       .innerHTML = this.noteList._notes[id-1].getText();
   };
 
-  NoteController.prototype.getNoteFromUrl = function(location) {
-    return location.hash.split("#notes/")[1];
-  };
-
-  NoteController.prototype.showNoteForCurrentPage = function() {
-    controller.showNote(controller.getNoteFromUrl(window.location));
-  };
-
-
-
-  NoteController.prototype.makeUrlChangeShowNoteForCurrentPage = function() {
-    window.addEventListener("hashchange", this.showNoteForCurrentPage);
-  };
 
   exports.NoteController = NoteController;
 
